@@ -1,10 +1,14 @@
-
 import iconFacebook from "/socialMedia/facebook.svg";
 import iconInstagram from "/socialMedia/instagram.svg";
 import iconTwitter from "/socialMedia/twitter.svg";
 import iconLinkedin from "/socialMedia/linkedin.svg";
+import CheckedIcon from "./CheckedIcon";
+import { useEmailValidation } from "../../hooks/useEmailValidation";
 
 const Footer = () => {
+  const { email, isValid, message, validateEmail, handleSubscribe } =
+    useEmailValidation();
+
   return (
     <div className="bg-white w-full flex items-center justify-between px-[100px] py-[38px]">
       <div className="flex flex-col gap-8">
@@ -80,12 +84,25 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter Your Email Address"
-              className=" border-b border-black p-2"
+              className={`border-b p-2 w-full pr-8 transition-all outline-none ${
+                isValid ? "border-green-500" : "border-black"
+              }`}
+              value={email}
+              onChange={(e) => validateEmail(e.target.value)}
             />
-            <button className="border-b border-black text-black px-4 py-2 hover:text-gray-500">
+            {isValid && (
+              <div className="transform translate-y-1/3">
+                <CheckedIcon />
+              </div>
+            )}
+            <button
+              onClick={handleSubscribe}
+              className="border-b border-black text-black px-4 py-2 hover:text-gray-500"
+            >
               SUBSCRIBE
             </button>
           </div>
+          {message && <p className="mt-0 text-xs">{message}</p>}
         </div>
       </div>
     </div>
