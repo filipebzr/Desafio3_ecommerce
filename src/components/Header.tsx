@@ -1,7 +1,7 @@
 import React from "react";
 import iconName from "../assets/images/Header/iconName.png";
-import iconProfile from "../assets/images/Header/iconProfile.png";
-import iconShop from "../assets/images/Header/iconShop.png";
+import iconProfile from "/profile.svg";
+import iconShop from "/shop.svg";
 
 const Header = () => {
   return (
@@ -9,23 +9,31 @@ const Header = () => {
       <img src={iconName} alt="Furniro icon" className="w-auto h-10" />
 
       <nav className="flex gap-10 font-bold">
-        <a href="/" className="hover:text-gray-500">
+        <a href="/" className="hover:border-b border-black hover:shadow-lg">
           Home
         </a>
-        <a href="/shop" className="hover:text-gray-500">
+        <a href="/shop" className="hover:border-b border-black hover:shadow-lg">
           Shop
         </a>
-        <a href="/about" className="hover:text-gray-500">
+        <a href="/about" className="hover:border-b border-black hover:shadow-lg">
           About
         </a>
-        <a href="/contact" className="hover:text-gray-500">
+        <a href="/contact" className="hover:border-b border-black hover:shadow-lg">
           Contact
         </a>
       </nav>
 
       <div className="flex items-center gap-4">
-        <img src={iconProfile} alt="Profile icon" className="w-6 h-6" />
-        <img src={iconShop} alt="Shop icon" className="w-6 h-6" />
+        <div className="flex h-[24px] w-[24px] rounded-full shadow-lg justify-center items-center bg-white hover:text-gray-500">
+          <a href="/profile">
+            <img src={iconProfile} alt="" />
+          </a>
+        </div>
+        <div className="flex h-[24px] w-[24px] rounded-full shadow-lg justify-center items-center bg-white hover:text-gray-500">
+          <a href="/shop">
+            <img src={iconShop} alt="" />
+          </a>
+        </div>
       </div>
     </div>
   );
