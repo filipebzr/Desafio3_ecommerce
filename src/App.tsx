@@ -2,7 +2,7 @@ import './App.css'
 
 function App() {
   return (
-    <h1 className="text-3xl text-accent font-bold text-center mt-8">
+    <h1 className="bg-slate-300 text-3xl text-accent font-bold text-center">
       Configuração do Tailwind OK! ✅
     </h1>
   )
