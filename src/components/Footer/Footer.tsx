@@ -1,16 +1,13 @@
-import iconFacebook from "/socialMedia/facebook.svg";
-import iconInstagram from "/socialMedia/instagram.svg";
-import iconTwitter from "/socialMedia/twitter.svg";
-import iconLinkedin from "/socialMedia/linkedin.svg";
 import CheckedIcon from "./CheckedIcon";
 import { useEmailValidation } from "../../hooks/useEmailValidation";
+import SocialMedia from "./SocialMedia";
 
 const Footer = () => {
   const { email, isValid, message, validateEmail, handleSubscribe } =
     useEmailValidation();
 
   return (
-    <div className="bg-white w-full flex items-center justify-between px-[100px] py-[38px]">
+    <div className="bg-white w-full flex items-center gap-[200px] px-[100px] py-[38px]">
       <div className="flex flex-col gap-8">
         <div>
           <h1 className="text-4xl font-bold mb-4">Furniro.</h1>
@@ -19,26 +16,10 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex gap-4 ">
-          <div className="flex h-[24px] w-[24px] rounded-full shadow-lg justify-center items-center bg-white hover:text-gray-500">
-            <a href="http://www.facebook.com">
-              <img src={iconFacebook} alt="" />
-            </a>
-          </div>
-          <div className="flex h-[24px] w-[24px] rounded-full shadow-lg justify-center items-center bg-white  hover:text-gray-500">
-            <a href="http://www.instagram.com">
-              <img src={iconInstagram} alt="" />
-            </a>
-          </div>
-          <div className="flex h-[24px] w-[24px] rounded-full shadow-lg justify-center items-center bg-white  hover:text-gray-500">
-            <a href="http://www.x.com">
-              <img src={iconTwitter} alt="" />
-            </a>
-          </div>
-          <div className="flex h-[24px] w-[24px] rounded-full shadow-lg justify-center items-center bg-white  hover:text-gray-500">
-            <a href="http://www.linkedin.com" className=" hover:text-gray-500">
-              <img src={iconLinkedin} alt="" />
-            </a>
-          </div>
+          <SocialMedia socialmedia="Facebook" url="https://www.facebook.com/" />
+          <SocialMedia socialmedia="Instagram" url="https://www.instagram.com/" />
+          <SocialMedia socialmedia="Twitter" url="https://www.x.com/" />
+          <SocialMedia socialmedia="Linkedin" url="https://www.linkedin.com/" />
         </div>
 
         <p className="mt-8">2023 furniro. All rights reserved</p>
