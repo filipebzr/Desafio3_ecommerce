@@ -1,4 +1,4 @@
-import React from "react";
+
 import iconFacebook from "/socialMedia/facebook.svg";
 import iconInstagram from "/socialMedia/instagram.svg";
 import iconTwitter from "/socialMedia/twitter.svg";
