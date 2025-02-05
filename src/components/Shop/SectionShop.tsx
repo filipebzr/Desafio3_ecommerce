@@ -8,8 +8,8 @@ const SectionShop = () => {
         <CardShop
           title="Syltherine"
           description="Stylish cafe chair"
-          valueOff={2500000}
-          value={3500000}
+          valueOff='2500000'
+          value='3500000'
           alertText="New"
           image="/public/sectionShop/01.jpg"
         />
