@@ -1,7 +1,7 @@
 import AlertOff from "./AlertOff";
-import iconShare from "../../../public/sectionShop/share.svg"
-import iconCompare from "../../../public/sectionShop/compare.svg"
-import iconLike from "../../../public/sectionShop/like.svg"
+import iconShare from "../../../public/sectionShop/share.svg";
+import iconCompare from "../../../public/sectionShop/compare.svg";
+import iconLike from "../../../public/sectionShop/like.svg";
 
 interface CardShopProps {
   title: string;
@@ -21,7 +21,7 @@ const CardShop: React.FC<CardShopProps> = ({
   image,
 }) => {
   return (
-    <div className="bg-[#F4F5F7] w-[285px] h-[480px] shadow-2xl relative">
+    <div className="bg-[#F4F5F7] w-[285px] h-[480px] shadow-md relative overflow-hidden">
       <div className="relative group">
         <img src={image} alt="" className="w-full h-[320px] object-cover" />
         <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -38,12 +38,18 @@ const CardShop: React.FC<CardShopProps> = ({
           </div>
         </div>
         <AlertOff text={alertText} />
-        <div className="p-4">
-          <h1 className="text-3xl font-bold pt-2">{title}</h1>
-          <p className="text-2xl pt-2 text-[#898989] ">{description}</p>
+        <div className="p-4 flex flex-col justify-between h-full">
+          <h1 className="text-2xl font-bold pt-2 truncate">{title}</h1>
+          <p className="text-lg pt-1 text-[#898989] truncate">{description}</p>
           <div className="flex gap-2 items-end pt-2">
-            <h2 className="font-bold text-2xl ">Rp {valueOff}</h2>
-            <p className="text-gray-500 line-through">Rp {value}</p>
+            {valueOff !== value ? (
+              <>
+                <h2 className="font-bold text-xl">Rp {value}</h2>
+                <p className="text-gray-500 line-through">Rp {valueOff}</p>
+              </>
+            ) : (
+              <h2 className="font-bold text-xl">Rp {value}</h2>
+            )}
           </div>
         </div>
       </div>

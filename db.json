@@ -28,7 +28,7 @@
         "description": "Outdoor bar table and stool",
         "valueOff": "",
         "value": "500.000",
-        "alertText": "",
+        "alertText": "New",
         "image": "https://bzr-furniro.s3.us-east-2.amazonaws.com/Shop/img04.png"
     },
     {
@@ -44,7 +44,7 @@
         "description": "Small mug",
         "valueOff": "",
         "value": "150.000",
-        "alertText": "",
+        "alertText": "New",
         "image": "https://bzr-furniro.s3.us-east-2.amazonaws.com/Shop/img06.png"
     },
     {
@@ -60,7 +60,7 @@
         "description": "Minimalist flower pot",
         "valueOff": "",
         "value": "500.000",
-        "alertText": "",
+        "alertText": "New",
         "image": "https://bzr-furniro.s3.us-east-2.amazonaws.com/Shop/img08.png"
     }
 ]

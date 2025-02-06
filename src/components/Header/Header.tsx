@@ -26,13 +26,14 @@ const Header = () => {
         <a href="/shop" className="hover:border-b border-black hover:shadow-lg">
           Shop
         </a>
-        <a href="/" className="hover:border-b border-black hover:shadow-lg">
+        <a
+          href="/about"
+          className="hover:border-b border-black hover:shadow-lg">
           About
         </a>
         <a
           href="/contact"
-          className="hover:border-b border-black hover:shadow-lg"
-        >
+          className="hover:border-b border-black hover:shadow-lg">
           Contact
         </a>
       </nav>
