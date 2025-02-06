@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import iconName from "../../assets/images/Header/iconName.png";
 import iconProfile from "/profile.svg";
 import iconShop from "/shop.svg";
