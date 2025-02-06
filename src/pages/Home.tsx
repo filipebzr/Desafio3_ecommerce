@@ -2,6 +2,7 @@
 import Carrousel from "../components/Home/Carrousel";
 import ImageandTitle from "../components/Home/ImageandTitle";
 import SectionShop from "../components/Shop/SectionShop";
+import YellowButton from "../components/YellowButton";
 
 const Home = () => {
   return (
@@ -17,9 +18,7 @@ const Home = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
               tellus, luctus nec ullamcorper mattis.
             </p>
-            <button className="bg-[#B88E2F] h-[74px] w-[222px] font-bold text-white">
-              BUY NOW
-            </button>
+            <YellowButton title="BUY NOW"/>
           </div>
         </div>
       </div>
@@ -48,9 +47,9 @@ const Home = () => {
             Show more
           </button>
         </div>
-        <section className="w-full h-[670px]">
+        <div className="w-full h-[670px] relative overflow-hidden">
           <Carrousel />
-        </section>
+        </div>
         <div className="w-full flex flex-col items-center justify-center pt-[100px]">
           <p className="font-bold text-[#616161]">Share your setup with</p>
           <h1 className="font-bold text-5xl ">#FuniroFurniture</h1>

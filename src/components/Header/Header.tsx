@@ -16,7 +16,7 @@ const Header = () => {
   };
 
   return (
-    <div className="h-[100px] w-full px-8 flex items-center justify-between relative">
+    <div className="fixed z-50 h-[90px] w-full bg-white  px-8 flex items-center justify-between">
       <img src={iconName} alt="Furniro icon" className="w-auto h-10" />
 
       <nav className="flex gap-10 font-bold">
