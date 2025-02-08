@@ -6,7 +6,7 @@ import YellowButton from "../components/YellowButton";
 
 const Contact = () => {
   return (
-    <div className="pt-[60px]">
+    <div>
       <SectionTitle title="Contact" />
       <div className="h-[316px] w-full flex items-center justify-center flex-col">
         <h1 className="text-4xl p-4">Get In Touch With Us</h1>

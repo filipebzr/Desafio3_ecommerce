@@ -7,7 +7,7 @@ const Footer = () => {
     useEmailValidation();
 
   return (
-    <div className="bg-white w-full flex items-center gap-[200px] px-[100px] py-[38px]">
+    <div className="bg-white w-full justify-between flex items-center gap-[200px] px-[150px] py-[38px]">
       <div className="flex flex-col gap-8">
         <div>
           <h1 className="text-4xl font-bold mb-4">Furniro.</h1>
