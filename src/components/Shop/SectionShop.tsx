@@ -10,10 +10,13 @@ interface Product {
   alertText: string;
   image: string;
 }
+interface SectionShopProps {
+  lengthCards: number; 
+}
 
-const SectionShop: React.FC = () => {
+const SectionShop: React.FC<SectionShopProps> = ({ lengthCards }) => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [visibleCount, setVisibleCount] = useState(8);
+  const [visibleCount, setVisibleCount] = useState(lengthCards);
   const navigate = useNavigate();
 
   useEffect(() => {

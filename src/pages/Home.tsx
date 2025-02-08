@@ -41,7 +41,7 @@ const Home = () => {
         </div>
       </div>
       <section className="p-8">
-        <SectionShop />
+        <SectionShop lengthCards={8} />
         
         <div className="w-full h-[670px] relative overflow-hidden">
           <Carrousel />
