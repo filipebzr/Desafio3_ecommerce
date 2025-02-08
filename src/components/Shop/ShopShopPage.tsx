@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardShop from "./CardShop";
+import ButtonNextPage from "./ButtonNextPage";
 
 interface Product {
   title: string;
@@ -64,12 +65,15 @@ const ShopShopPage: React.FC<SectionShopProps> = ({ lengthCards }) => {
           />
         ))}
       </div>
-      <div className="h-[100px] items-center flex justify-center ">
+      <div className="h-[100px] items-center flex justify-center gap-6 ">
+        <ButtonNextPage/>
+        <ButtonNextPage/>
+        <ButtonNextPage/>
         <button
           onClick={handleShowMore}
-          className="border-[#B88E2F] font-bold text-[#B88E2F] border h-[48px] w-[245px]"
+          className="border-[#B88E2F] font-bold text-[#B88E2F] border h-[48px] w-[100px]"
         >
-          MUDAR ESSA AQUI
+          Next
         </button>
       </div>
     </div>
