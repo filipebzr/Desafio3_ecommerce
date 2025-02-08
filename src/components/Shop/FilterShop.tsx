@@ -1,14 +1,14 @@
-import iconLike from "/public/shop.svg";
-import React, { useState, useEffect } from 'react';
+import iconLike from "../../assets/shop.svg";
+import { useState, useEffect } from "react";
 
 const FilterShop = () => {
-  const [products, setProducts] = useState([]);
+  const [setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/products')
-      .then(response => response.json())
-      .then(data => {
+    fetch("http://localhost:3001/products")
+      .then((response) => response.json())
+      .then((data) => {
         setProducts(data);
         setFilteredProducts(data); // Inicialmente, sem filtro
       });
@@ -33,9 +33,17 @@ const FilterShop = () => {
       </div>
       <div className="flex items-center gap-4">
         <h1>Show</h1>
-        <input type="text" placeholder="16" className="h-8 w-8 text-center border" />
+        <input
+          type="text"
+          placeholder="16"
+          className="h-8 w-8 text-center border"
+        />
         <h1>Short by</h1>
-        <input type="text" placeholder="Default" className="h-8 w-[150px] text-center border" />
+        <input
+          type="text"
+          placeholder="Default"
+          className="h-8 w-[150px] text-center border"
+        />
       </div>
     </div>
   );

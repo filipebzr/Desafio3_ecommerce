@@ -1,13 +1,16 @@
 import SectionShop from "../components/Shop/SectionShop";
+import DescriptionSection from "../components/singleProduct/DescriptionSection";
 import MenuSection from "../components/singleProduct/MenuSection";
+import ProductSection from "../components/singleProduct/ProductSection";
+
 
 const SingleProduct = () => {
   return (
     <>
-    <div className="w-full">
       <MenuSection />
-      <SectionShop lengthCards={4}/>
-    </div>
+      <ProductSection/>
+      <DescriptionSection/>
+      <SectionShop lengthCards={4} title="Related Products" />
     </>
   );
 };

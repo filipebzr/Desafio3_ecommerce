@@ -20,7 +20,7 @@ const SocialMedia: React.FC<SectionGaranteeProps> = ({ socialmedia, url }) => {
         {icon ? (
           <img src={icon} alt={socialmedia} />
         ) : (
-          <span>Icon not found</span> // Mensagem de fallback se o ícone não for encontrado
+          <span>Icon not found</span> 
         )}
       </a>
     </div>

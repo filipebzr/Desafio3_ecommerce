@@ -1,7 +1,7 @@
 import AlertOff from "./AlertOff";
-import iconShare from "../../../public/sectionShop/share.svg";
-import iconCompare from "../../../public/sectionShop/compare.svg";
-import iconLike from "../../../public/sectionShop/like.svg";
+import iconShare from "../../assets/share.svg";
+import iconCompare from "../../assets/compare.svg";
+import iconLike from "../../assets/like.svg";
 
 interface CardShopProps {
   title: string;

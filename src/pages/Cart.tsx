@@ -1,10 +1,14 @@
-const img = "https://bzr-furniro.s3.us-east-2.amazonaws.com/Shop/sec2-03.png"
+import CartSection from "../components/CartPage/CartSection"
+import SectionTitle from "../components/Section-Title/SectionTitle"
+
+
 
 const Cart = () => {
   return (
-    <div>
-      <img src={img} alt="" />
-    </div>
+   <>
+   <SectionTitle title="Cart"/>
+   <CartSection/>
+   </>
   )
 }
 

@@ -10,11 +10,13 @@ interface Product {
   alertText: string;
   image: string;
 }
+
 interface SectionShopProps {
   lengthCards: number; 
+  title:string;
 }
 
-const SectionShop: React.FC<SectionShopProps> = ({ lengthCards }) => {
+const SectionShop: React.FC<SectionShopProps> = ({ lengthCards, title }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [visibleCount, setVisibleCount] = useState(lengthCards);
   const navigate = useNavigate();
@@ -50,8 +52,8 @@ const SectionShop: React.FC<SectionShopProps> = ({ lengthCards }) => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="font-bold text-5xl pt-8">Our Products</h1>
-      <div className="gap-20 grid grid-cols-4 mt-6 p-8">
+      <h1 className="font-bold text-5xl pt-8">{title}</h1>
+      <div className={`gap-6 grid grid-cols-${Math.min(4, lengthCards)} mt-6 p-8`}>
         {products.slice(0, visibleCount).map((product, index) => (
           <CardShop
             key={index}
