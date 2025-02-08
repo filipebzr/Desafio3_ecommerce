@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CardShop from "./CardShop";
 
 interface Product {
@@ -12,18 +13,19 @@ interface Product {
 
 const SectionShop: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [visibleCount, setVisibleCount] = useState(8);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("/db.json"); 
+        const response = await fetch("/db.json");
         const data: Product[] = await response.json();
 
-        // Lógica para substituir valueOff se estiver vazio
-        const updatedProducts = data.map(product => ({
+        const updatedProducts = data.map((product) => ({
           ...product,
           valueOff: product.valueOff === "" ? product.value : product.valueOff,
-          value: product.valueOff === "" ? product.value : product.value
+          value: product.valueOff === "" ? product.value : product.value,
         }));
 
         setProducts(updatedProducts);
@@ -35,21 +37,37 @@ const SectionShop: React.FC = () => {
     fetchProducts();
   }, []);
 
+  const handleShowMore = () => {
+    if (visibleCount + 4 >= products.length) {
+      navigate("/shop");
+    } else {
+      setVisibleCount(visibleCount + 4);
+    }
+  };
+
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="font-bold text-5xl pt-8">Our Products</h1>
       <div className="gap-20 grid grid-cols-4 mt-6 p-8">
-        {products.map((product, index) => (
+        {products.slice(0, visibleCount).map((product, index) => (
           <CardShop
             key={index}
             title={product.title}
             description={product.description}
-            valueOff={product.valueOff }
+            valueOff={product.valueOff}
             value={product.value}
             alertText={product.alertText}
             image={product.image}
           />
         ))}
+      </div>
+      <div className="h-[100px] items-center flex justify-center ">
+        <button
+          onClick={handleShowMore}
+          className="border-[#B88E2F] font-bold text-[#B88E2F] border h-[48px] w-[245px]"
+        >
+          Show more
+        </button>
       </div>
     </div>
   );

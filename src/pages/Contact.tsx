@@ -34,13 +34,14 @@ const Contact = () => {
             description="236 5th SE Avenue, New York NY10000, United States"
           />
         </div>
-        <div className="flex flex-col">
-          <ContactForm title="Your Name" placeholder="Abc" />
-          <ContactForm title="Email address" placeholder="a@a.com" />
-          <ContactForm title="Subject" placeholder="This is an optional" />
+        <div className="flex flex-col h-[923px]">
+          <ContactForm title="Your Name" placeholder="Abc" hidthForm="75" />
+          <ContactForm title="Email address" placeholder="a@a.com" hidthForm="75" />
+          <ContactForm title="Subject" placeholder="This is an optional" hidthForm="75" />
           <ContactForm
             title="Message"
             placeholder="Hi! i’d like to ask about"
+            hidthForm="120"
           />
           <YellowButton title="Submit" />
         </div>

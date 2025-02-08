@@ -42,11 +42,7 @@ const Home = () => {
       </div>
       <section className="p-8">
         <SectionShop />
-        <div className="h-[100px] items-center flex justify-center ">
-          <button className="border-[#B88E2F] font-bold text-[#B88E2F] border h-[48px] w-[245px]">
-            Show more
-          </button>
-        </div>
+        
         <div className="w-full h-[670px] relative overflow-hidden">
           <Carrousel />
         </div>
