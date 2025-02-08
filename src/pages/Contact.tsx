@@ -42,7 +42,7 @@ const Contact = () => {
             title="Message"
             placeholder="Hi! i’d like to ask about"
           />
-          <YellowButton title="submit" />
+          <YellowButton title="Submit" />
         </div>
       </div>
       <SectionGarantie />

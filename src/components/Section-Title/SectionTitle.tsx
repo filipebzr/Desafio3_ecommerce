@@ -10,6 +10,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ title }) => {
       <img src={logo} alt="" className="h-[77px] w-[77px]" />
       <h1 className="text-5xl">{title}</h1>
       <div className="flex align-text-botton items-center justify-center mt-2 gap-2 text-xl">
+        <a href=""></a>
         <p className="font-bold">Home </p>
         <p className="text-2xl font-bold">&gt;</p>
         <p>{title}</p>
