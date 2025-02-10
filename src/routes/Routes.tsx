@@ -7,6 +7,7 @@ import Cart from "../pages/Cart.tsx";
 import Contact from "../pages/Contact.tsx";
 import SingleProduct from "../pages/SingleProduct.tsx";
 import Checkout from "../pages/Checkout.tsx";
+import PageNotFound from "../pages/PageNotFound.tsx";
 
 export default function AppRoutes() {
   return (
@@ -21,6 +22,7 @@ export default function AppRoutes() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/product" element={<SingleProduct />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="*" element={<PageNotFound />} />
 
       </Routes>
       <Footer />
