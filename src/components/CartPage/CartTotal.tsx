@@ -1,5 +1,3 @@
-import React from "react";
-
 const CartTotal = () => {
   return (
     <div className="w-1/3 bg-[#F9F1E7] p-4 ml-6 rounded-lg">
@@ -12,9 +10,11 @@ const CartTotal = () => {
         <span>Total</span>
         <span className="text-orange-500">Rs. 250,000.00</span>
       </div>
-      <button className="w-full mt-4 py-2 bg-white border border-black text-black rounded-lg">
-        Check Out
-      </button>
+      <a href="/checkout">
+        <button className="w-full mt-4 py-2 font-bold text-[#B88E2F] hover:bg-[#B88E2F] hover:text-white bg-white border border-[#B88E2F] rounded-lg">
+          Check Out
+        </button>
+      </a>
     </div>
   );
 };

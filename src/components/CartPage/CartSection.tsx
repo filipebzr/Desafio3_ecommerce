@@ -1,4 +1,4 @@
-import React from "react";
+
 import CartTotal from "./CartTotal";
 import trash from "../../assets/trash.svg"
 

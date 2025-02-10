@@ -1,5 +1,5 @@
 // import ImageandTitle from "../components/Home/ImageandTitle";
-import Carrousel from "../components/Home/Carrousel";
+import Carousel from "../components/Home/Carousel";
 import ImageandTitle from "../components/Home/ImageandTitle";
 import SectionShop from "../components/Shop/SectionShop";
 import YellowButton from "../components/YellowButton";
@@ -44,7 +44,7 @@ const Home = () => {
         <SectionShop lengthCards={8} title="Our Products" />
         
         <div className="w-full h-[670px] relative overflow-hidden">
-          <Carrousel />
+          <Carousel />
         </div>
         <div className="w-full flex flex-col items-center justify-center pt-[100px]">
           <p className="font-bold text-[#616161]">Share your setup with</p>
