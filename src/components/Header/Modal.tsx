@@ -2,8 +2,8 @@
 import React from 'react';
 import iconBag from '../../assets/images/Header/bag.svg';
 import ModalButton from './ModalButton';
-import CartItem from './CartItem';
-import CartSummary from './CartSummary';
+import CartItem from '../Shop/CartItem';
+import CartSummary from '../Shop/CartSummary';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../Shop/Redux/Store'; // Ajuste o caminho conforme necessário
 
