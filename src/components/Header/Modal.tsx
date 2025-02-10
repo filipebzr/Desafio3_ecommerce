@@ -1,39 +1,19 @@
+// src/components/Shop/Modal.tsx
 import React from 'react';
 import iconBag from '../../assets/images/Header/bag.svg';
 import ModalButton from './ModalButton';
 import CartItem from './CartItem';
 import CartSummary from './CartSummary';
-
-interface CartItem {
-  id: number;
-  name: string;
-  price: number;
-  quantity: number;
-  image: string;
-}
-
-const items: CartItem[] = [
-  {
-    id: 1,
-    name: 'Asgaard sofa',
-    price: 250000,
-    quantity: 1,
-    image: 'link-para-imagem-do-sofa',
-  },
-  {
-    id: 2,
-    name: 'Casaliving Wood',
-    price: 270000,
-    quantity: 1,
-    image: 'link-para-imagem-do-casaliving',
-  },
-];
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../Shop/Redux/Store'; // Ajuste o caminho conforme necessário
 
 const Modal: React.FC = () => {
-  const subtotal = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const dispatch = useDispatch();
+  const items = useSelector((state: RootState) => state.cart.items);
+  const subtotal = useSelector((state: RootState) => state.cart.total);
 
   const handleRemove = (id: number) => {
-    console.log(`Remove item with id: ${id}`);
+    dispatch(removeItem(id));
   };
 
   return (
@@ -44,7 +24,11 @@ const Modal: React.FC = () => {
       </div>
       <div className="divide-y">
         {items.map(item => (
-          <CartItem key={item.id} {...item} onRemove={handleRemove} />
+          <CartItem
+            key={item.id}
+            {...item}
+            onRemove={handleRemove}
+          />
         ))}
       </div>
       <CartSummary subtotal={subtotal} />

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardShop from "./CardShop";
+import { useDispatch } from 'react-redux';
+import { addItem } from './Redux/CartSlice';
 
 interface Product {
   title: string;
@@ -9,60 +11,56 @@ interface Product {
   value: string;
   alertText: string;
   image: string;
+  id: number;
 }
 
 interface SectionShopProps {
   lengthCards: number; 
-  title:string;
+  title: string;
 }
 
 const SectionShop: React.FC<SectionShopProps> = ({ lengthCards, title }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [visibleCount, setVisibleCount] = useState(lengthCards);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await fetch("/db.json");
         const data: Product[] = await response.json();
-
-        const updatedProducts = data.map((product) => ({
+        setProducts(data.map(product => ({
           ...product,
-          valueOff: product.valueOff === "" ? product.value : product.valueOff,
-          value: product.valueOff === "" ? product.value : product.value,
-        }));
-
-        setProducts(updatedProducts);
+          valueOff: product.valueOff || product.value
+        })));
       } catch (error) {
         console.error("Error fetching products:", error);
       }
     };
-
     fetchProducts();
   }, []);
 
   const handleShowMore = () => {
-    if (visibleCount + 4 >= products.length) {
-      navigate("/shop");
-    } else {
-      setVisibleCount(visibleCount + 4);
-    }
+    visibleCount + 4 >= products.length 
+      ? navigate("/shop") 
+      : setVisibleCount(prev => prev + 4);
   };
 
   return (
     <div className="flex flex-col justify-center items-center">
       <h1 className="font-bold text-5xl pt-8">{title}</h1>
       <div className={`gap-6 grid grid-cols-${Math.min(4, lengthCards)} mt-6 p-8`}>
-        {products.slice(0, visibleCount).map((product, index) => (
+        {products.slice(0, visibleCount).map((product) => (
           <CardShop
-            key={index}
-            title={product.title}
-            description={product.description}
-            valueOff={product.valueOff}
-            value={product.value}
-            alertText={product.alertText}
-            image={product.image}
+            key={product.id}
+            {...product}
+            onAddToCart={() => dispatch(addItem({
+              id: product.id,
+              name: product.title,
+              price: parseFloat(product.value.replace(/\./g, '')),
+              image: product.image 
+            }))}
           />
         ))}
       </div>

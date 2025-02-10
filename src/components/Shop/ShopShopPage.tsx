@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CardShop from "./CardShop";
 import ButtonNextPage from "./ButtonNextPage";
+import { useDispatch } from 'react-redux';
+import { addItem } from './Redux/CartSlice';
 
 interface Product {
   title: string;
@@ -10,7 +12,9 @@ interface Product {
   value: string;
   alertText: string;
   image: string;
+  id: number; // Adicionei o campo id
 }
+
 interface SectionShopProps {
   lengthCards: number; 
 }
@@ -19,6 +23,7 @@ const ShopShopPage: React.FC<SectionShopProps> = ({ lengthCards }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [visibleCount, setVisibleCount] = useState(lengthCards);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -53,22 +58,30 @@ const ShopShopPage: React.FC<SectionShopProps> = ({ lengthCards }) => {
     <div className="flex flex-col justify-center items-center">
       <h1 className="font-bold text-5xl pt-8">Our Products</h1>
       <div className="gap-20 grid grid-cols-4 mt-6 p-8">
-        {products.slice(0, visibleCount).map((product, index) => (
+        {products.slice(0, visibleCount).map((product) => (
           <CardShop
-            key={index}
+            key={product.id} // Alterado para usar o ID do produto
             title={product.title}
             description={product.description}
             valueOff={product.valueOff}
             value={product.value}
             alertText={product.alertText}
             image={product.image}
+            id={product.id} // Adicionado o ID
+            onAddToCart={() => dispatch(addItem({
+              id: product.id,
+              name: product.title,
+              price: parseFloat(product.value.replace(/\./g, '')),
+              image: product.image
+            }))}
           />
         ))}
       </div>
       <div className="h-[100px] items-center flex justify-center gap-6 ">
-        <ButtonNextPage/>
-        <ButtonNextPage/>
-        <ButtonNextPage/>
+        <ButtonNextPage number={1}/>
+        <ButtonNextPage number={2}/>
+        <ButtonNextPage number={3}/>
+
         <button
           onClick={handleShowMore}
           className="border-[#B88E2F] font-bold text-[#B88E2F] border h-[48px] w-[100px]"
@@ -79,4 +92,4 @@ const ShopShopPage: React.FC<SectionShopProps> = ({ lengthCards }) => {
     </div>
   );
 };
-export default ShopShopPage
+export default ShopShopPage;

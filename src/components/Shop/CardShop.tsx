@@ -10,6 +10,8 @@ interface CardShopProps {
   valueOff: string;
   alertText: string;
   image: string;
+  id: number;
+  onAddToCart: () => void;
 }
 
 const CardShop: React.FC<CardShopProps> = ({
@@ -19,13 +21,18 @@ const CardShop: React.FC<CardShopProps> = ({
   valueOff,
   alertText,
   image,
+  id,
+  onAddToCart,
 }) => {
   return (
     <div className="bg-[#F4F5F7] w-[285px] h-[480px] shadow-md relative overflow-hidden">
       <div className="relative group">
         <img src={image} alt="" className="w-full h-[320px] object-cover" />
         <div className="absolute z-10 inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity">
-          <button className="bg-white text-[#B88E2F] w-[202px] font-bold px-4 py-2 mb-2">
+          <button 
+            className="bg-white text-[#B88E2F] hover:bg-[#B88E2F] hover:text-white w-[202px] font-bold px-4 py-2 mb-2"
+            onClick={onAddToCart} // Alterado aqui
+          >
             Add to cart
           </button>
           <div className="flex justify-between space-x-2 text-white">

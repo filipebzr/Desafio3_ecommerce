@@ -2,10 +2,13 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import AppRoutes from "./routes/Routes";
-
+import { Provider } from "react-redux";
+import store from "./components/Shop/Redux/Store";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <AppRoutes />
+    <Provider store={store}>
+      <AppRoutes />
+    </Provider>
   </StrictMode>
 );

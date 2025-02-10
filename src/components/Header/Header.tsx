@@ -3,9 +3,15 @@ import iconName from "../../assets/images/Header/iconName.png";
 import iconProfile from "../../assets/profile.svg";
 import iconShop from "../../assets/shop.svg";
 import Modal from "./Modal";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store"; // Ajuste o caminho conforme necessário
 
 const Header = () => {
   const [isModalVisible, setModalVisible] = useState(false);
+  const cartItems = useSelector((state: RootState) => state.cart.items);
+  
+  // Calcula a quantidade total de itens no carrinho
+  const cartQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const handleMouseEnter = () => {
     setModalVisible(true);
@@ -50,6 +56,13 @@ const Header = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
+          {/* Badge com a quantidade de itens */}
+          {cartQuantity > 0 && (
+            <div className="absolute -top-3 -right-3 bg-[#B88E2F] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm">
+              {cartQuantity}
+            </div>
+          )}
+          
           <img src={iconShop} alt="Shop Icon" className="cursor-pointer" />
           {isModalVisible && (
             <>
