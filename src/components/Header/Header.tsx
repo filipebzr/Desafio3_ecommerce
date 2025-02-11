@@ -2,15 +2,15 @@ import  { useState } from "react";
 import iconName from "../../assets/images/Header/iconName.png";
 import iconProfile from "../../assets/profile.svg";
 import iconShop from "../../assets/shop.svg";
-import Modal from "./Modal";
+import Modal from "../Shop/Modal";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store"; // Ajuste o caminho conforme necessário
+import { RootState } from "../Shop/Redux/Store";
 
 const Header = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const cartItems = useSelector((state: RootState) => state.cart.items);
   
-  // Calcula a quantidade total de itens no carrinho
+
   const cartQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   const handleMouseEnter = () => {

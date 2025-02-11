@@ -18,7 +18,7 @@ const Home = () => {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
               tellus, luctus nec ullamcorper mattis.
             </p>
-            <YellowButton title="BUY NOW"/>
+            <YellowButton path="/shop" title="BUY NOW"/>
           </div>
         </div>
       </div>
