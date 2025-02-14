@@ -1,30 +1,17 @@
 // src/components/Shop/Modal.tsx
-import React, { useEffect } from "react";
+import React from "react";
 import iconBag from "../../assets/images/Header/bag.svg";
 import ModalButton from "../Header/ModalButton";
 import CartItem from "../Shop/CartItem";
 import CartSummary from "../Shop/CartSummary";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../Shop/Redux/Store";
-import { removeItem, closeModal, setItems } from "../Shop/Redux/CartSlice";
+import { removeItem, closeModal } from "../Shop/Redux/CartSlice";
 
 const Modal: React.FC = () => {
   const dispatch = useDispatch();
   const items = useSelector((state: RootState) => state.cart.items);
   const subtotal = useSelector((state: RootState) => state.cart.total);
-
-  // Carregar o estado do carrinho do localStorage quando o componente for montado
-  useEffect(() => {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-      dispatch(setItems(JSON.parse(savedCart)));
-    }
-  }, [dispatch]);
-
-  // Salvar o estado do carrinho no localStorage sempre que ele mudar
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(items));
-  }, [items]);
 
   const handleRemove = (id: number) => {
     dispatch(removeItem(id));

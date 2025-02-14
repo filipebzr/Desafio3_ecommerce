@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import iconName from "../../assets/images/Header/iconName.png";
 import iconProfile from "../../assets/profile.svg";
 import iconShop from "../../assets/shop.svg";
@@ -9,9 +9,11 @@ import { RootState } from "../Shop/Redux/Store";
 const Header = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const cartItems = useSelector((state: RootState) => state.cart.items);
-  
 
-  const cartQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const cartQuantity = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
 
   const handleMouseEnter = () => {
     setModalVisible(true);
@@ -23,7 +25,9 @@ const Header = () => {
 
   return (
     <div className="fixed z-50 h-[90px] w-full bg-white  px-8 flex items-center justify-between">
-      <img src={iconName} alt="Furniro icon" className="w-auto h-10" />
+      <a href="/">
+        <img src={iconName} alt="Furniro icon" className="w-auto h-10" />
+      </a>
 
       <nav className="flex gap-10 font-bold">
         <a href="/" className="hover:border-b border-black hover:shadow-lg">
@@ -34,12 +38,14 @@ const Header = () => {
         </a>
         <a
           href="/about"
-          className="hover:border-b border-black hover:shadow-lg">
+          className="hover:border-b border-black hover:shadow-lg"
+        >
           About
         </a>
         <a
           href="/contact"
-          className="hover:border-b border-black hover:shadow-lg">
+          className="hover:border-b border-black hover:shadow-lg"
+        >
           Contact
         </a>
       </nav>
@@ -62,7 +68,7 @@ const Header = () => {
               {cartQuantity}
             </div>
           )}
-          
+
           <img src={iconShop} alt="Shop Icon" className="cursor-pointer" />
           {isModalVisible && (
             <>

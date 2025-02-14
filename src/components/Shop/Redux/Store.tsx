@@ -1,8 +1,8 @@
-
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // Usa localStorage por padrão
 import cartReducer from '../Redux/CartSlice';
+// import { loadState, saveState } from './LocalStorge';
 
 const persistConfig = {
   key: 'root',
@@ -20,10 +20,16 @@ const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false, // Desativa verificação para redux-persist
     }),
-});
+  });
+  // store.subscribe(() => {
+  //   saveState(store.getState().cart);
+  // });
+  // preloadedState: {
+  //   cart: loadState(),
+  // },
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-
-export const persistor = persistStore(store);
 export default store;
+export const persistor = persistStore(store);
+
